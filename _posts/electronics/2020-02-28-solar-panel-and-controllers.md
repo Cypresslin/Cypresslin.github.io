@@ -42,7 +42,7 @@ categories: [electronics]
 ## PWM / MPPT 控制器購買準則
 如果你整個系統不大瓦數不高，或是不那麼在意轉換效率，或有預算考量那就可以買 PWM 的控制器；而若你的板子最大功率點電壓 Pmax 遠高於你的電池（例如 Pmax 34V 的板子搭上 12V 的鉛酸電池）此時如果用 PWM 控制器的話它的壓降會造成功率損失達 5、60%，這種狀況最好是採用 MPPT 控制器，或者是用更高電壓的 24V 電池減少電壓差。若你的系統很大，甚至可以考慮使用多個控制器建構分散式的 MPPT 系統，讓它可以對每一張板子個別進行最大功率點追蹤（因為在一組太陽能電池陣列中，可能會有幾塊因為日照不均而使發電效率不同）來最大化發電效率。
 
-這個 Great Scott 在 Youtube 上的影片 [MPPT VS PWM || Solar Charge Controller](https://www.youtube.com/watch?v=C0VZTqwE4Ls) 很值得一看，裡面比較了 PWM / MPPT 控制器的效率以及價格差異。
+這個 Great Scott 在 Youtube 上的影片 [MPPT VS PWM \|\| Solar Charge Controller](https://www.youtube.com/watch?v=C0VZTqwE4Ls) 很值得一看，裡面比較了 PWM / MPPT 控制器的效率以及價格差異。
 
 ## MPPT 控制器辨識準則
 如果是買模組自己搞的話那就簡單啦，直接看板子上有沒有一顆大電感，而且板子上應該都會強調自己用的是哪一顆 IC，最好的範例就是 Adam Welch 在 Youtube 上的影片 [Cheap(est?) Lithium MPPT Solar Charge Controller CN3722 - 12v Solar Shed](https://www.youtube.com/watch?v=liYZ5pYOZDE) 中提到的那塊板子。
