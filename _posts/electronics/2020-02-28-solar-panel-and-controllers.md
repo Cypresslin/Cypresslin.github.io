@@ -51,11 +51,13 @@ categories: [electronics]
 
 ### 藍黑色機身，上有 MPPT SOLAR charge controller 字樣
 ![假MPPT - 藍黑色機身](/images/2020-02-fake-mppt/blue-black.jpg)
+
 中國製品，拆開裡面根本沒有電感
 Homemade 102 - [Inside MPPT battery charger CHINA](https://www.youtube.com/watch?v=TIAIr8fkYX4)
 
 ### 灰色機身，橘色字樣，上有 MPPT MXX 字樣（XX為數字）
 ![假MPPT - 灰色機身](/images/2020-02-fake-mppt/gray-orange.jpg)
+
 中國製品，拆解與實測都在在顯示這不是 MPPT
 Julian Ilett - [Review: MPPT-M20 Solar Charge Controller #1 - It's a Fake](https://www.youtube.com/watch?v=KA3X8XLxWHU)
 Julian Ilett - [Review: MPPT-M20 Solar Charge Controller #2 - A Devious Fraud](https://www.youtube.com/watch?v=la-gvy0DfJs)
