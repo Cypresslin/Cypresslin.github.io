@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "太陽能板與太陽能控制器"
 subtitle: "市面上有不少中國製「假的」MPPT 控制器，購買前請注意"
 categories: [electronics]
@@ -17,9 +16,19 @@ categories: [electronics]
 
 在拍賣市場全新太陽能控制器 PWM 的最低含運費可以找到大概一個 125 左右，而 MPPT 的含運費居然不到 300 塊？這就讓人有點疑惑了，因為網路上查到的文章大多說後者比前者貴上好多倍。花了一兩天看了不少 Youtube 分析影片才知道原來有不少不誠實的中國廠商會標榜自己是 MPPT，但其實裡面根本就是個 PWM 控制器（或者 MPPT 只是個產品名稱而不是功能？太陽餅裡面沒有太陽的概念？）總之很瞎，雖然我只有一塊小板子大概是沒有必要用上 MPPT，但浪費了這麼多時間那就把這些假 MPPT 列一列吧！
 
-# 太陽能控制器
-在這先把找到關於這兩種控制器背景知識的筆記寫一下，下面的資料與範例來自於 [Choosing the right solar charge controller/regulator](https://www.solar4rvs.com.au/buying/buyer-guides/choosing-the-right-solar-charge-controller-regulat/) 一文。
+在開始之前先把查到的相關背景知識寫一下。
 
+# 太陽能板
+## 規格說明
+板子上會有寫著規格的貼紙，上面會有各種特性的縮寫：
+  * Voc - 開路電壓（Open Circuit Voltage）- 太陽能板沒有接任何東西時直接由板子正負極量出來的電壓
+  * Isc - 短路電流（Short Circuit Current）- 太陽能板在沒有接任何東西時直接由板子正負極量出來的電流
+  * Vmpp - 最大功率點電壓（Maximum Power Point Voltage）- 在接上負載後輸出表現最佳的工作電壓，如果你接的是 MPPT 控制器那麼量出來的電壓越接近這個值越好，這項數值也可能寫成 Vmp（Voltage at Pmax）
+  * Impp - 最大功率點電流（Maximum Power Point Current）- 在接上負載後輸出表現最佳的工作電流，這數值也可能寫成 Imp (Current at Pmax)
+  * Pmax - 最大輸出功率（Maximum Power Point）- 即為最佳工作電壓與電流的乘積 Vmpp * Impp，板子的功率就是由此定義的
+
+
+# 太陽能控制器
 ## PWM（脈衝寬度調變，Pulse Width Modulation）
 基本上可以把這種控制器想成是一種開關（通常是用 MOSFET 金氧半導體場效電晶體當作開關），它的電路會先把太陽能板的電壓降到比電池高一點，然後這個開關會依據電池的電量以不同的頻率開啟與關閉來讓板子為電池充電，在電池沒什麼電的時候幾乎是一直開著，等到充得差不多之後會降低開啟的時間這樣，這也就是所謂的 PWM，直到充滿至截止電壓之後停止充電或是切換為開啟時間更短的涓流充電（Float voltage，要注意的是鋰電池似乎不是很建議用涓流充電，涓流充電會更需要精密的調校以免把電池弄壞）。
 
@@ -31,7 +40,7 @@ categories: [electronics]
 它與 PWM 控制器在硬體上的不同就是裡面會有一顆例如 CN3722 這種專門用來提供最大功率點追蹤功能的 IC，另外最顯著的差異就是它會因為有著 DC-DC 直流變壓的功能而有一顆很大顆的電感！只要拆開發現裡面沒有電感的就很有可能是假的。
 
 ## PWM / MPPT 控制器購買準則
-如果你整個系統不大，或是不那麼在意轉換效率（或有預算考量）那就可以買 PWM 的控制器；而若你的系統很大，甚至可以考慮使用多個控制器建構分散式的 MPPT 系統，讓它可以對每一張板子個別進行最大功率點追蹤（因為在一組太陽能電池陣列中，可能會有幾塊因為日照不均而使發電效率不同）來最大化發電效率。
+如果你整個系統不大瓦數不高，或是不那麼在意轉換效率，或有預算考量那就可以買 PWM 的控制器；而若你的板子最大功率點電壓 Pmax 遠高於你的電池（例如 Pmax 34V 的板子搭上 12V 的鉛酸電池）此時如果用 PWM 控制器的話它的壓降會造成功率損失達 5、60%，這種狀況最好是採用 MPPT 控制器，或者是用更高電壓的 24V 電池減少電壓差。若你的系統很大，甚至可以考慮使用多個控制器建構分散式的 MPPT 系統，讓它可以對每一張板子個別進行最大功率點追蹤（因為在一組太陽能電池陣列中，可能會有幾塊因為日照不均而使發電效率不同）來最大化發電效率。
 
 這個 Great Scott 在 Youtube 上的影片 [MPPT VS PWM || Solar Charge Controller](https://www.youtube.com/watch?v=C0VZTqwE4Ls) 很值得一看，裡面比較了 PWM / MPPT 控制器的效率以及價格差異。
 
@@ -42,33 +51,34 @@ categories: [electronics]
 
 但還沒購買時要怎麼判斷咧？大概有幾點可以參考：
   * 價格 - 太便宜的...大概沒啥好貨，多半是 PWM 型的然後上面印上 MPPT 字樣這樣（最可惡的就是假貨又賣很貴的XD）。
-  * 標籤 - 如果它真的是 MPPT 型的，那麼機身上、盒子上、說明書上一定到處都會印上 MPPT 的字樣，沒有寫的高達 87 成不是，Adam Welch 的 Youtube 影片 [MPPT or PWM? Perfect Suitor Solar Charge Controller](https://www.youtube.com/watch?v=TfB_iIF-rCA) 中提到的 Perfect Suitor 的那款就是這樣，只有拍賣網站上有寫 MPPT 機身上卻沒有
+  * 標籤 - 如果它真的是 MPPT 型的，那麼機身上、盒子上、說明書上一定到處都會印上 MPPT 的字樣，沒有寫的高達 87 成不是，Adam Welch 的 Youtube 影片 [MPPT or PWM? Perfect Suitor Solar Charge Controller](https://www.youtube.com/watch?v=TfB_iIF-rCA) 中提到的 Perfect Suitor 的那款就是這樣，只有拍賣網站上有寫 MPPT 機身上卻沒有，這看起來比較像是賣家刻意欺騙消費者，而不是像其他下面幾個假的 MPPT 那樣是廠商刻意騙消費者
   * 牌子 - 如果有廠牌的會比較保險一點
   * 善用搜尋，如果有看到某款控制器價差很大那就要注意囉，用 Fake MPPT 上網搜尋也會找到很多憤怒買家的分享XD
 
 ## 假的 MPPT 控制器
-這裡列出幾個看到的幾款假 MPPT 控制器，節省大家的時間，看到這種就可以跳過了。
+這裡列出幾個在台灣拍賣網站上會看到的幾款假 MPPT 控制器，節省大家的時間，看到這種就可以跳過了。
 
 ### 藍黑色機身，上有 MPPT SOLAR charge controller 字樣
 ![假MPPT - 藍黑色機身](/images/2020-02-fake-mppt/blue-black.jpg)
 
-中國製品，拆開裡面根本沒有電感
-Homemade 102 - [Inside MPPT battery charger CHINA](https://www.youtube.com/watch?v=TIAIr8fkYX4)
+中國製品，拆開裡面根本沒有電感，請參考 Youtube影片：Homemade 102 - [Inside MPPT battery charger CHINA](https://www.youtube.com/watch?v=TIAIr8fkYX4)
 
 ### 灰色機身，橘色字樣，上有 MPPT MXX 字樣（XX為數字）
 ![假MPPT - 灰色機身](/images/2020-02-fake-mppt/gray-orange.jpg)
 
-中國製品，拆解與實測都在在顯示這不是 MPPT
-Julian Ilett - [Review: MPPT-M20 Solar Charge Controller #1 - It's a Fake](https://www.youtube.com/watch?v=KA3X8XLxWHU)
-Julian Ilett - [Review: MPPT-M20 Solar Charge Controller #2 - A Devious Fraud](https://www.youtube.com/watch?v=la-gvy0DfJs)
+中國製品，拆解與實測都在在顯示這不是 MPPT，請參考 Youtube 影片：
+  * Julian Ilett - [Review: MPPT-M20 Solar Charge Controller #1 - It's a Fake](https://www.youtube.com/watch?v=KA3X8XLxWHU)
+  * Julian Ilett - [Review: MPPT-M20 Solar Charge Controller #2 - A Devious Fraud](https://www.youtube.com/watch?v=la-gvy0DfJs)
 
 ## 同場加映 - 便宜的 PWM 控制器
 在看 Adam Welch 的影片時，發現他也有拆解了兩款很便宜的 PWM 控制器（大概就是拍賣上會看到一百多兩百塊的那款）：
-[Anself CMTD 3S Lithium Solar Charge Controller - 12v Solar Shed](https://www.youtube.com/watch?v=I1hrWOP7WYA)
-[Inside Another Cheap Solar Charge Controller](https://www.youtube.com/watch?v=9fjeYi3SwLc)
-裡面安培數的不同看起來居然只是增加幾個 MOSFET，在功率不高的狀況下可能還好，但是如果是要架高瓦數的系統時可能要考慮一下這種適不適合你用。
+  * [Anself CMTD 3S Lithium Solar Charge Controller - 12v Solar Shed](https://www.youtube.com/watch?v=I1hrWOP7WYA)
+  * [Inside Another Cheap Solar Charge Controller](https://www.youtube.com/watch?v=9fjeYi3SwLc)
+
+這種在拍賣上也蠻騙人的，控制器安培數的不同看起來居然只是增加幾個 MOSFET 但價錢卻可以翻上一兩倍。這種控制器這在功率不高的狀況下可能還好，但是如果是要架高瓦數的系統時...可能會有承受電流與散熱的問題，購買前最好考慮一下。
 
 
 # 參考資料
+  * [How do I read the solar panel specifications?	](https://www.altestore.com/blog/2016/04/how-do-i-read-specifications-of-my-solar-panel/)
   * [Choosing the right solar charge controller/regulator](https://www.solar4rvs.com.au/buying/buyer-guides/choosing-the-right-solar-charge-controller-regulat/)
   * [Adam Welch's Youtube channel](https://www.youtube.com/channel/UCm5sG3-BXQZfVy3st2T_XKg)
