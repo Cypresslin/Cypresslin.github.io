@@ -39,7 +39,7 @@ For more details see [GitHub Flavored Markdown](https://guides.github.com/featur
 
 # Minister of Disassembly - 親拆大臣
 <ul>
-  {% for post in site.posts.MinisterOfDisassembly %}
+  {% for post in site.categories.MinisterOfDisassembly %}
     <li>
       <a href="{{ post.url }}">{{ post.title }}</a>
     </li>
