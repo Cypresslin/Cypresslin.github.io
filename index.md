@@ -28,9 +28,18 @@ Syntax highlighted code block
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-# Articles
+# Notes
 <ul>
   {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+# Minister of Disassembly - 親拆大臣
+<ul>
+  {% for post in site.posts.MinisterOfDisassembly %}
     <li>
       <a href="{{ post.url }}">{{ post.title }}</a>
     </li>
