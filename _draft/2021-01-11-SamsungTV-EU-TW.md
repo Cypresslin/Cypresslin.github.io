@@ -7,6 +7,8 @@ categories: [electronics]
 # 前言
 因緣際會踢到一台三星的智慧電視 UE40D6100SKXXU，高興之餘發現機殼上的標籤寫著輸入電壓 220V，嗯...看來要把他直接拿來用並不是那麼簡單的一件事！於是乎就開始了一段查找資料的奇幻旅程。
 
+![電視標籤](/images/2021-01-SamsungTV/Label.jpg)
+
 上網查了一下 Spec，這台 2011 年的機器畫質也有個 Full HD 1080p，而且居然可以有可以連有線網路、無線網路（需要搭配他們自己的 Linkstick Wifi USB）還有 3D 與 2D 轉 3D 功能（也是一樣需要搭配他們的主動式 3D 眼鏡，不過可惜的是 3D 電視的發展大概在 2017 年就劃下了句點）不過看起來猴塞雷啊！拿來寫 code 應該很有立體感XD
 
 英國官網：https://www.samsung.com/uk/support/model/UE40D6100SKXXU/
