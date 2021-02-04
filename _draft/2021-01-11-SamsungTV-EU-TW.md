@@ -9,7 +9,7 @@ categories: [electronics]
 
 ![電視標籤](/images/2021-01-SamsungTV/Label.jpg)
 
-上網查了一下 Spec，這台 2011 年的機器畫質也有個 Full HD 1080p，而且居然可以有可以連有線網路、無線網路（需要搭配他們自己的 Linkstick Wifi USB）還有 3D 與 2D 轉 3D 功能（也是一樣需要搭配他們的主動式 3D 眼鏡，不過可惜的是 3D 電視的發展大概在 2017 年就劃下了句點）不過看起來猴塞雷啊！拿來寫 code 應該很有立體感XD
+上網查了一下 Spec，這台 2011 年的機器畫質也有個 Full HD 1080p，而且居然可以有可以連有線網路、無線網路（需要搭配他們自己的 Linkstick Wifi USB）還有 3D 功能（也是一樣需要搭配他們的主動式 3D 眼鏡，不過可惜的是 3D 電視的發展大概在 2017 年就劃下了句點）不過看起來猴塞雷啊！
 
 英國官網：https://www.samsung.com/uk/support/model/UE40D6100SKXXU/
 
@@ -58,7 +58,6 @@ categories: [electronics]
   * [UA40D6000SMXZW](https://www.samsung.com/tw/support/model/UA40D6000SMXZW/)
   * [UA46D6000SMXZW](https://www.samsung.com/tw/support/model/UA46D6000SMXZW/)
   * [UA55D6000SMXZW](https://www.samsung.com/tw/support/model/UA55D6000SMXZW/)
-  * [UA55D6000SMXZW](https://www.samsung.com/tw/support/model/UA55D6000SMXZW/)
 
 不確定裡面的板子到底會不會一樣，那就先從確定的東西下手 - 來找找 UED6100 的電源板吧！
 
@@ -91,10 +90,41 @@ categories: [electronics]
 
 用 110V 開機也沒問題！關於電源的研究就到此一段落。
 
-# 連網功能
-這種很 fancy 的智慧電視最大的特點就是可以連上網，系統裡面有內建一些 App 可以讓你直接在電視上看 Netflix, Youtube 之類的影片。而這台電視只有有線網路可以用，如果想要用無線網路功能就得去買他們自家出的 Wifi dongle 來接，不信邪的我還是隨手拿了兩個其他牌子的 USB Wifi 網路卡來用，結果當然是不能用XD
+更詳細的拆解步驟與診斷可以在 ElektroTanya 這個網站上找到[維修手冊](https://elektrotanya.com/samsung_ue32d6100_ue32d6200_ue40d6000_ue40d6200_ue40d6100s_ue40d6200t_ue40d6300_chassis_u68a.pdf/download.html)
 
-這原因大概是因為主機裡面只有內建他們家出的網卡的驅動程式，也許拿由其他廠商製造但晶片相同的網卡搞不好也可以用？這問題就留待未來有機會測試再說吧，反正至少有有線網路可以用
+# 腳架
+拿到這台電視時是沒有腳架的狀態，所以也在各大網拍上找了一下，最簡單的不外乎就是：
+1. 相同機型拆機品
+2. 通用腳架
+
+相同機型的拆機品是最直覺的解決方案，不過這台在台灣沒有賣，要在國內找到對應的拆機品有點困難，從國外買的話運費加上去實在是很不划算XD。通用腳架則是鎖在背後 VESA 規格的孔上（也就是壁掛架的鎖孔）。
+
+## 同一個原廠腳架有沒有可能用在不同型號的機器上？
+出於好奇所以查了一下會不會有一個腳架適用於不同機型的可能性，這台電視的腳架看起來至少分成兩個部份，一個是鎖在機器上的部份 (Assembly Guide P-Stand)，一個是底座 (P-Base)，所以如果找得到一樣的 P-Stand 可以鎖上機器那就應該沒問題了！
+
+用這台的型號加上 stand 為關鍵字查到了國外網友賣的拆機品，那個賣家很專業的附上了零件編號的近照，上面寫著：
+UD6000 37"
+GUIDE STAND
+BN61-07057X
+
+看來這個 BN61-07057X 就是我們要的 P-Stand 型號了，在 ebay 上拿這型號去找可以找到有賣家說它適用於 37" 40" 46" D/ES 系列的電視。（不過如果拿這個型號去美國的 [SamsungParts](http://www.samsungparts.com/) 找是找不到的，倒是有一個相近的 BN61-07057A。歐洲也有一個 samsungparts.eu，但不知道為什麼我的搜尋都無效），所以最保險的作法還是實際看到零件編號再下手。
+
+拍賣上是可以看到一些可能相容的拆機品，不過大部分的賣家都不會特別寫零件編號所以找起來也很麻煩。最「保值」的辦法大概就是去買通用型腳架了，萬一哪天這台機器退休了還可以把腳架拿去別的機器上用。
+
+# 連網功能
+這種很 fancy 的智慧電視最大的特點就是可以連上網，系統裡面有內建一些 App 可以讓你直接在電視上看 Netflix, Youtube 之類的影片。而這台電視只有有線網路可以用，如果想要用無線網路功能就得去買他們自家出的 Wifi dongle 來接，根據 UE40D6100SK 這台的使用者手冊，可以用的 USB 無線網卡為：
+>To connect wirelessly, you must ﬁrst attach a “Samsung Wireless LAN Adapter” (WIS09ABGN, WIS09ABGN2, WIS10ABGN - sold separately) to either the USB 1 (HDD), USB 2 or USB 3 on the back of your TV.
+
+不過我還是隨手拿了兩個其他牌子的 USB Wifi 網路卡來用，結果當然是不能用XD
+
+這原因大概是因為主機裡面只有內建他們家出的網卡的驅動程式，我猜也許拿由其他廠商製造但晶片相同的網卡搞不好也可以用？一查果然有網友實驗過了XD（請見：[Mobile01 - Samsung的USB wireless: WIS09ABGN](https://www.mobile01.com/topicdetail.php?f=347&t=1727659)），以下為晶片列表以及網友分享的替代型號：
+  | Samsung Model | Chipset                | Replacement                          |
+  |---------------|------------------------|--------------------------------------|
+  | WIS09ABGN     | Ralink RT2870 + RT2850 | D-Link DWA-160 RevB / ZyXEL NWD-211AN|
+  | WIS09ABGN2    | Ralink RT3572          | Linksys WUSB600N Rev2                |
+  | WIS10ABGN     | Ralink RT3572          | Same as above                        |
+
+不過實際測試就留待未來有機會拿到這些 USB 網卡再說吧，反正現在至少有有線網路可以用～
 
 # Netflix app
 手邊沒有遙控器，不過還好我的手機有紅外線功能以及萬用遙控器的 App，配對設定完之後成功的進到 Smart Hub 的主畫面，此時因為有連上網的關係系統也自動更新的一些 App，其中包含了 Netflix 的 App。滿懷期待的開起來發現畫面會黑一下然後跳回主畫面，怎麼開都開不起來。我想可能是 App 太舊了吧...
@@ -103,5 +133,5 @@ categories: [electronics]
 
 之前也有查到 Youtube 因為從 Flash 轉 HTML5，也是導致很多舊機器不再支援 Youtube 影片的播放，再加上這件事情讓我覺得電視好像還是買最簡單可以吃 HDMI 等影音輸入的就好XD，畢竟一台如果想用個五年十年難保廠商會願意給你更新這麼久，真的想要比較厲害的功能倒不如去買一台 RaspberryPi 來接，配上 [Kodi](https://kodi.tv/) 這套軟體感覺就可以取代掉原本智慧電視大部分的功能。
 
-Reference: [Samsung - A message appears on your TV: Netflix will no longer be available on this device](https://www.samsung.com/us/support/troubleshooting/TSG01203568/)
+參考資料：[Samsung - A message appears on your TV: Netflix will no longer be available on this device](https://www.samsung.com/us/support/troubleshooting/TSG01203568/)
 
