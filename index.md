@@ -28,9 +28,9 @@ Syntax highlighted code block
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-# Notes
+# Notes - Electronics
 <ul>
-  {% for post in site.posts %}
+  {% for post in site.categories.electronics %}
     <li>
       <a href="{{ post.url }}">{{ post.title }}</a>
     </li>
@@ -45,3 +45,13 @@ For more details see [GitHub Flavored Markdown](https://guides.github.com/featur
     </li>
   {% endfor %}
 </ul>
+
+# All Notes
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
