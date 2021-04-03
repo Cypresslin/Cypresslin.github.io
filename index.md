@@ -1,6 +1,4 @@
-## /dev/random
-
-# Notes - 長篇大論
+# Notes - 教學
 <ul>
   <li>
     <a href="https://cypresslin.github.io/book-mm5-101/">MM5 101</a>
@@ -23,6 +21,9 @@
       <a href="{{ post.url }}">{{ post.title }}</a>
     </li>
   {% endfor %}
+  <li>
+    <a href="https://cypresslin.gitbooks.io/rolleiflex-622-repair/content/">維修紀錄 - Rolleiflex 622 K2 維修日誌</a>
+  </li>
 </ul>
 
 # All Notes
@@ -34,5 +35,8 @@
   {% endfor %}
   <li>
     <a href="https://cypresslin.github.io/book-mm5-101/">MM5 101</a>
+  </li>
+  <li>
+    <a href="https://cypresslin.gitbooks.io/rolleiflex-622-repair/content/">維修紀錄 - Rolleiflex 622 K2 維修日誌</a>
   </li>
 </ul>
