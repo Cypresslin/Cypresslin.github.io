@@ -5,6 +5,15 @@
   </li>
 </ul>
 
+# Notes - Linux
+<ul>
+  {% for post in site.categories.Tux %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
 # Notes - Electronics
 <ul>
   {% for post in site.categories.electronics %}
