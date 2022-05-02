@@ -1,5 +1,5 @@
 ---
-title:  "在台灣用 Samsung 的歐規電視？"
+title:  "在台灣用 Samsung 的 220V 歐規電視？"
 subtitle: "一台歐洲製造掛著歐洲規格的三星電視要怎才能在台灣用？"
 categories: [electronics]
 ---
@@ -125,11 +125,12 @@ BN61-07057X
 不過我還是隨手拿了兩個其他牌子的 USB Wifi 網路卡來用，結果當然是不能用XD
 
 這原因大概是因為主機裡面只有內建他們家出的網卡的驅動程式，我猜也許拿由其他廠商製造但晶片相同的網卡搞不好也可以用？一查果然有網友實驗過了XD（請見：[Mobile01 - Samsung的USB wireless: WIS09ABGN](https://www.mobile01.com/topicdetail.php?f=347&t=1727659)），以下為晶片列表以及網友分享的替代型號：
-  | Samsung Model | Chipset                | Replacement                          |
-  |---------------|------------------------|--------------------------------------|
-  | WIS09ABGN     | Ralink RT2870 + RT2850 | D-Link DWA-160 RevB / ZyXEL NWD-211AN|
-  | WIS09ABGN2    | Ralink RT3572          | Linksys WUSB600N Rev2                |
-  | WIS10ABGN     | Ralink RT3572          | Same as above                        |
+
+| Samsung Model | Chipset                | Replacement                          |
+|---------------|------------------------|--------------------------------------|
+| WIS09ABGN     | Ralink RT2870 + RT2850 | D-Link DWA-160 RevB / ZyXEL NWD-211AN|
+| WIS09ABGN2    | Ralink RT3572          | Linksys WUSB600N Rev2                |
+| WIS10ABGN     | Ralink RT3572          | Same as above                        |
 
 不過實際測試就留待未來有機會拿到這些 USB 網卡再說吧，反正有線網路可以用（而且沒啥 app 好用的）～
 
