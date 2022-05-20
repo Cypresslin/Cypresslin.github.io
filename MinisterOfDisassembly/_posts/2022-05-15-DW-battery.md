@@ -11,8 +11,9 @@ categories: [MinisterOfDisassembly]
 這種小工程網路隨便一找就很多教學，還有解說這三種不同背蓋拆法的影片：
 [![YouTube - 開錶蓋 DIY自己來【市面上各總錶蓋】換電池 翹手錶教學](http://img.youtube.com/vi/vtMqkwUbsjQ/0.jpg)](https://www.youtube.com/watch?v=vtMqkwUbsjQ)
 
-也有人分享幫 Daniel Wellington 換電池的影片：
+也有人分享幫 Daniel Wellington 手錶換電池的影片：
 [![YouTube - Easy Snap-off Back Watch Battery Replacement (Daniel Wellington)](http://img.youtube.com/vi/-xlLFB6z2fs/0.jpg)](https://www.youtube.com/watch?v=-xlLFB6z2fs)
+
 影片裡也不是用什麼特別的工具，只是用小刀就能把背蓋撬開～裝回去也是雙手用力一壓，啪的一聲就搞定了，看起來很簡單對吧～那麼就來動手吧！
 
 **如果怕失手刮傷錶的話還是建議去鐘錶行弄**
