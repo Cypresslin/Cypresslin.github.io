@@ -86,4 +86,9 @@ Canonical 固定在每年的四月、十月也就是每半年會推出一版新�
 
 如果你都有乖乖升級的話應該是不會遇到這個問題啦XD
 
-Reference: [https://help.ubuntu.com/community/EOLUpgrade](https://help.ubuntu.com/community/EOLUpgrades)
+## An upgrade from 'kinetic' to 'mantic' is not supported with this tool
+最近在升級機器時遇上了這個錯誤訊息，`do-release-upgrade` 沒辦法幫我直接從 kinetic 跳 mantic。網路上查到的解決方法一樣是先把 source.list 裡面的網址改成 old-releases.ubuntu.com，把能裝的更新全部安裝完並重新開機後再把網址改回原本的 archive.ubuntu.com (或 ports.ubuntu.com)，並手動把 release name 從 kinetic 改成 lunar，接著跑過 dist-upgrade 並重新開機後就可以用 `do-release-upgrade` 升級到 mantic 了。
+
+Reference:
+  * [https://help.ubuntu.com/community/EOLUpgrade](https://help.ubuntu.com/community/EOLUpgrades)
+  * [Stackexchange - Upgrading Ubuntu Server 22.10 Kinetic Kudu to 23.10 Mantic](https://unix.stackexchange.com/questions/767795)
